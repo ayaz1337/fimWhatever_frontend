@@ -1,0 +1,10 @@
+.home__row {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+
+    @media screen and (max-width: 739px) {
+        padding: 2rem 1rem;
+    }
+}

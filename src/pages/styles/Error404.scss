@@ -1,0 +1,12 @@
+.error__404 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .error__404__img {
+        transform: translateY(20vh);
+        max-width: 100%;
+        width: auto;
+    }
+}

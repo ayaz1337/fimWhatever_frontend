@@ -1,0 +1,113 @@
+.container__body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: var(--color-0x2);
+}
+
+.container {
+    background: var(--color-0x4);
+    width: 900px;
+    padding: 2.5rem 2rem;
+    position: relative;
+
+    .cover {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 100%;
+        width: 50%;
+        z-index: 100;
+        transition: all 1s ease;
+
+        &::before {
+            content: '';
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background: var(--color-0xC);
+        }
+
+        img {
+            position: absolute;
+            opacity: 0.5;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            z-index: 12;
+        }
+    }
+
+    #flip {
+        &:checked {
+            ~ {
+                .cover {
+                    transform: translate(-100%);
+                }
+            }
+        }
+    }
+
+    .form {
+        height: 100%;
+        width: 100%;
+        background: var(--secondary-color);
+    }
+
+    .form__body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+#flip {
+    visibility: hidden;
+}
+
+.form__body {
+    .login__form {
+        width: calc(100%/2 - 50px);
+    }
+
+    .signup__form {
+        width: calc(100%/2 - 50px);
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .container {
+        .cover {
+            display: none;
+        }
+
+        #flip {
+            &:checked {
+                ~ {
+                    .form__body {
+                        .signup__form {
+                            display: block;
+                        }
+
+                        .login__form {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .form__body {
+        .login__form {
+            width: 100%;
+        }
+
+        .signup__form {
+            width: 100%;
+            display: none;
+        }
+    }
+}
