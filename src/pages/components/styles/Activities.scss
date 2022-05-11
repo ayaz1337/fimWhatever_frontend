@@ -48,7 +48,6 @@
         grid-row-end: 3;
         grid-column-start: 1;
         grid-column-end: 6;
-        min-height: auto;
 
     }
 
@@ -56,4 +55,9 @@
         padding: 1rem;
     }
 
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
 }

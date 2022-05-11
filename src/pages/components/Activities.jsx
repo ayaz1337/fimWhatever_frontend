@@ -13,6 +13,7 @@ import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import { Paper } from '@mui/material';
+import $ from 'jquery';
 
 
 
@@ -47,6 +48,15 @@ export default function Activities({ activities, setModal, setModalmsg, setStatu
   const handleSearchChange = (event) => {
     const val = document.querySelector(`#${event.target.id}`).value.toUpperCase();
     let tr = document.querySelectorAll("#accor__main");
+    
+    if(val.length > 0 && val != ""){
+      $('body').addClass('stop-scrolling')
+      $('.activities').css('min-height', "100vh")
+    }
+    else {
+      $('body').removeClass('stop-scrolling')
+    }
+    
 
     for (let i = 0; i < tr.length; i++) {
       if (Filter(tr[i], val.split(":")[0], val.split(":")[1])) {
@@ -58,6 +68,12 @@ export default function Activities({ activities, setModal, setModalmsg, setStatu
     }
   }
 
+  const handleFocus = () => {
+  }
+
+  const handleBlur = () => {
+    $('body').removeClass('stop-scrolling')
+  }
   return (
     <motion.div
       className='activities'
@@ -70,7 +86,9 @@ export default function Activities({ activities, setModal, setModalmsg, setStatu
           sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: "100%" }}
         >
           <InputBase
+            onFocus={handleFocus}
             onChange={handleSearchChange}
+            onBlur={handleBlur}
             id="search__table"
             sx={{ ml: 1, flex: 1 }}
             placeholder="Search"

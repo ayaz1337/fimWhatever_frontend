@@ -8,7 +8,7 @@ export default function WrapSettings({ role }) {
         return (
             <div>
                 <ProtectedRoute>
-                    <Settings />
+                    <Settings role={role}/>
                 </ProtectedRoute>
             </div>
         )
@@ -18,7 +18,7 @@ export default function WrapSettings({ role }) {
         return (
             <div>
                 <PrivateRoute>
-                    <Settings />
+                    <Settings role={role}/>
                 </PrivateRoute>
             </div>
         )

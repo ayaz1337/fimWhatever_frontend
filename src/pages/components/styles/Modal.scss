@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: var(--color-0x11);
     z-index: 1;
 
@@ -38,17 +38,24 @@
         .modal__icon {
             font-size: 5rem;
         }
-        
+
         .success {
             color: var(--color-0x5);
         }
+
         .error {
             color: var(--color-0x6);
         }
 
-        p{
+        p {
             font-size: 14px;
         }
+    }
+
+    .circular {
+        padding: 10px 30px;
+        background: none;
+        transform: translateY(35vh);
     }
 }
 

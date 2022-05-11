@@ -24,10 +24,11 @@ export default function Login({ setModal, setModalmsg, setRedirect, setStatus })
     event.preventDefault();
     axios.post("/api2/login", loginForm)
       .then((response) => {
+        localStorage.setItem('cve', response.data['cve']);
         if (response.data['role'] === 'root') {
           window.location = '/root/dashboard'
         }
-        
+
         if (response.data['role'] === 'user') {
           window.location = '/user/dashboard'
         }
