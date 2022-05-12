@@ -55,14 +55,22 @@ export default function ({ rows }) {
         }
     }
 
-    const handleBlur = ()=>{
+    const handleBlur = () => {
         $('body').removeClass('stop-scrolling')
+        $('.table').css('min-height', "auto")
     }
 
     const handleStatus = (status) => {
-        if (status === 2) { return ['success', 'Integrity Safe', '#edf7ed'] }
-        if (status === 3) { return ['error', 'Integrity Compromised', '#fdeded'] }
-        if (status === 4) { return ['warning', 'Removed', '#fff4e5'] }
+        switch (status) {
+            case 2:
+              return ['success', 'Integrity Safe', '#edf7ed']
+            case 3:
+              return ['error', 'Integrity Compromised', '#fdeded']
+            case 4:
+              return ['warning', 'Removed', '#fff4e5']
+            default:
+              return ['info', 'Encrypted', '']
+          }
     }
     return (
         <>

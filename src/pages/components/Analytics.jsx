@@ -9,23 +9,19 @@ export default function Analytics({ analytics }) {
 
   const cardVariant1 = {
     hidden: { opacity: 0, y: "-200px" },
-    visible: { opacity: 1, y: 0 },
-    transition: { duration: 0.3 }
+    visible: { opacity: 1, y: 0, transition: { delay: 0}}
   }
   const cardVariant2 = {
     hidden: { opaccity: 0, y: "200px" },
-    visible: { opacity: 1, y: 0 },
-    transition: { duration: 0.3 }
+    visible: { opacity: 1, y: 0, transition: { delay: 0}}
   }
   const cardVariant3 = {
     hidden: { opaccity: 0, y: "-200px" },
-    visible: { opacity: 1, y: 0 },
-    transition: { duration: 0.3 }
+    visible: { opacity: 1, y: 0, transition: { delay: 0}}
   }
   const cardVariant4 = {
     hidden: { opaccity: 0, y: "200px" },
-    visible: { opacity: 1, y: 0 },
-    transition: { duration: 0.3 }
+    visible: { opacity: 1, y: 0, transition: { delay: 0}}
   }
 
   return (

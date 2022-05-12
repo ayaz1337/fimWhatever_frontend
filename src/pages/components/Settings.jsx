@@ -136,7 +136,7 @@ export default function Settings({ role }) {
         setState(true)
         axios.post("/api2/removebaseline", { "id": rmBase })
             .then((response) => {
-                setState(true)
+                setState(false)
                 setModalmsg(response.data['ack'])
                 setStatus(true)
                 setTimeout(() => {
