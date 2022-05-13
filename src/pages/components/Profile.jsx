@@ -1,15 +1,16 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import './styles/Profile.scss';
-import { MdPerson } from 'react-icons/md';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
-import CardImg8 from '../../../src/assets/convert 7.png';
+import { Button, CardActionArea, CardActions, TextField } from '@mui/material';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Modal from './Modal';
+import CircularLoader from './CircularLoader';
+import Loader from './Loader';
 
 
 const cardVariant1 = {
@@ -28,26 +29,101 @@ export default function RootProfile() {
   const [profile, setProfile] = useState({
     "user": "",
     "email": "",
-    "role":""
+    "role": ""
   })
+
+  const [email, setEmail] = useState("")
+
+  const [password, setPassword] = useState({
+    pass: "",
+    confirm_pass: ""
+  })
+
+  const [isloading, setLoading] = useState(true)
+  const [modal, setModal] = useState(false)
+  const [modalmsg, setModalmsg] = useState(false)
+  const [status, setStatus] = useState(true)
+  const [state, setState] = useState(false)
 
   useEffect(() => {
     axios.get("/api2/whoami")
       .then((response) => {
-        console.log(response.data)
         setProfile({
           "user": response.data['user'],
           "email": response.data['email'],
           "role": response.data['role']
         })
-        console.log(profile)
+        setLoading(false)
       })
       .catch((error) => {
-
+        setLoading(false)
       })
-  }, [])
+  }, [modal])
+
+  const handleSubmitEmail = (event) => {
+    event.preventDefault();
+    setState(true)
+    axios.post("/api2/updateemail", { "email": email })
+      .then((response) => {
+        setState(false)
+        setStatus(true)
+        setModalmsg(response.data['ack'])
+        setTimeout(() => {
+          setModal(true)
+        }, 800)
+      })
+      .catch((error) => {
+        setModal(true)
+        setModalmsg(error.response.data['error'])
+        setState(false)
+        setStatus(false)
+      })
+  }
+
+  const handleSubmitPass = (event) => {
+    event.preventDefault();
+    setState(true)
+    axios.post("/api2/updatepassword", { "pass": password.pass, "confirm_pass": password.confirm_pass })
+      .then((response) => {
+        setState(false)
+        setStatus(true)
+        setModalmsg(response.data['ack'])
+        setTimeout(() => {
+          setModal(true)
+        }, 800)
+      })
+      .catch((error) => {
+        setModal(true)
+        setModalmsg(error.response.data['error'])
+        setState(false)
+        setStatus(false)
+      })
+  }
+
+  const handleChange = (event) => {
+    let target = event.target.id.split(" ")[1]
+    console.log(target)
+    if (target === 'pass' || target === 'confirm_pass') {
+      setPassword({
+        ...password,
+        [target]: event.target.value
+      })
+    }
+
+    if (target === 'email') {
+      setEmail(event.target.value)
+    }
+  }
+
+
+  if (isloading) {
+    return <Loader />
+  }
+
   return (
     <div className='profile'>
+      <CircularLoader state={state} />
+      <Modal modal={modal} setModal={setModal} modalmsg={modalmsg} status={status} />
       <motion.div
         className="info"
         variants={cardVariant1}
@@ -69,7 +145,7 @@ export default function RootProfile() {
                 {profile['email']}
               </Typography>
               <Typography variant="body2" color="text.secondary" style={{ marginBottom: 30, marginTop: 10 }}>
-              privilege: {profile['role']} 
+                privilege: {profile['role']}
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -85,26 +161,18 @@ export default function RootProfile() {
         variants={cardVariant2}
         initial="hidden"
         animate="visible">
-        <Card className="update__card">
-          <CardActionArea>
-            <CardContent className='card__content'>
-              <Button
-                variant="contained"
-                component="label"
-              >
-                Upload File
-                <input
-                  type="file"
-                  hidden
-                />
-              </Button>
-            </CardContent>
-          </CardActionArea>
-          <CardActions style={{ padding: "30px 0 30px 0" }}>
-            <div className='card__footer'>
-            </div>
-          </CardActions>
-        </Card>
+        <form acrion="#" className="email__form" onSubmit={handleSubmitEmail}>
+          <TextField id="outlined-basic email" placeholder="email" variant="outlined" style={{ maxWidth: 500 }} value={email}
+            onChange={handleChange} />
+          <Button variant="contained" type="submit" className="submit__btn">update email</Button>
+        </form>
+        <form acrion="#" className='password__form' onSubmit={handleSubmitPass}>
+          <TextField id="outlined-basic pass" name="pass" placeholder="password" variant="outlined" type="password" style={{ maxWidth: 500 }}
+            onChange={handleChange} value={password.pass} />
+          <TextField id="outlined-basic confirm_pass" placeholder="confirm password" variant="outlined" type="password" style={{ maxWidth: 500 }}
+            onChange={handleChange} value={password.confirm_pass} />
+          <Button variant="contained" type="submit" className="submit__btn">update password</Button>
+        </form>
       </motion.div>
     </div>
   )

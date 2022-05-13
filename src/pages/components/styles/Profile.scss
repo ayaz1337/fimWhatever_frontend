@@ -21,6 +21,30 @@
     .update__details {
         grid-column-start: 3;
         grid-column-end: 6;
+        background: var(--color-0x4);
+        border-radius: 5px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6rem;
+
+        .email__form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .password__form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .submit__btn {
+            width: max-content;
+            height: 50px;
+        }
     }
 
     @media screen and (max-width: 1090px) {
@@ -34,6 +58,10 @@
         .update__details {
             grid-column-start: 1;
             grid-column-end: 6;
+
+            .submit__btn {
+                width: auto;
+            }
         }
 
     }

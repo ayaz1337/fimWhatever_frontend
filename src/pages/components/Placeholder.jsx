@@ -11,13 +11,13 @@ import { CardActionArea } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import { motion } from 'framer-motion';
-import CardImg1 from '../../../src/assets/convert 3.png';
-import CardImg2 from '../../../src/assets/convert 3.png';
-import CardImg3 from '../../../src/assets/convert 3.png';
-import CardImg4 from '../../../src/assets/convert 4.png';
-import CardImg5 from '../../../src/assets/convert 5.png';
-import CardImg6 from '../../../src/assets/convert 6.png';
-import CardImg7 from '../../../src/assets/convert 7.png';
+import CardImg1 from '../../../src/assets/convert1.png';
+import CardImg2 from '../../../src/assets/convert2.png';
+import CardImg3 from '../../../src/assets/convert3.png';
+import CardImg4 from '../../../src/assets/convert4.png';
+import CardImg5 from '../../../src/assets/convert5.png';
+import CardImg6 from '../../../src/assets/convert6.png';
+import CardImg7 from '../../../src/assets/convert7.png';
 import CardImg8 from '../../../src/assets/convert8.png';
 
 
@@ -70,7 +70,6 @@ export default function Placeholder() {
             component="img"
             height="250"
             image={data.img}
-            alt="green iguana"
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" style={{ marginTop: 20 }}>
