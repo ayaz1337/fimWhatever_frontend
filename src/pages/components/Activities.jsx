@@ -68,6 +68,26 @@ export default function Activities({ activities, setModal, setModalmsg, setStatu
       })
   }
 
+  const handleQuickScan = (e) => {
+    setState(true)
+    const { id, value } = e.target;
+    axios.post("/api2/quickscan", { "id": document.getElementById(value).textContent})
+      .then(response => {
+        setState(false)
+        setModalmsg(response.data['ack'])
+        setStatus(true)
+        setTimeout(() => {
+          setModal(true)
+        }, 800)
+      })
+      .catch(error => {
+        setState(false)
+        setStatus(false)
+        setModalmsg(error.response.data['error'])
+        setModal(true)
+      })
+  }
+
   const handleSearchChange = (event) => {
     const val = document.querySelector(`#${event.target.id}`).value.toUpperCase();
     let tr = document.querySelectorAll("#accor__main");
@@ -98,6 +118,7 @@ export default function Activities({ activities, setModal, setModalmsg, setStatu
     $('body').removeClass('stop-scrolling')
     $('.activities').css('min-height', "auto")
   }
+
   return (
     <><CircularLoader state={state} />
       <motion.div
@@ -155,6 +176,9 @@ export default function Activities({ activities, setModal, setModalmsg, setStatu
                 <div className='file__encrypt file__item'>
                   <Button variant="outlined" color="error" type="submit" onClick={handleBtnClick}
                     value={`file_id_${file.panel_id}d`} id={`file__encrypt_${file.panel_id}`}>{file.status < 5 ? 'Encrypt' : 'Decrypt'}</Button>
+
+                  <Button variant="outlined" color="info" type="submit" onClick={handleQuickScan} style={{display: file.status > 5 ? 'none': ''}}
+                    value={`file_id_${file.panel_id}d`} id={`file__encrypt_${file.panel_id}`}>Scan</Button>
                 </div>
               </Typography>
             </AccordionDetails>
