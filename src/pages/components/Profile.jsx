@@ -162,14 +162,14 @@ export default function RootProfile() {
         initial="hidden"
         animate="visible">
         <form acrion="#" className="email__form" onSubmit={handleSubmitEmail}>
-          <TextField id="outlined-basic email" placeholder="email" variant="outlined" style={{ maxWidth: 500 }} value={email}
+          <TextField id="outlined-basic email" placeholder="email" variant="outlined" value={email}
             onChange={handleChange} />
           <Button variant="contained" type="submit" className="submit__btn">update email</Button>
         </form>
         <form acrion="#" className='password__form' onSubmit={handleSubmitPass}>
-          <TextField id="outlined-basic pass" name="pass" placeholder="password" variant="outlined" type="password" style={{ maxWidth: 500 }}
+          <TextField id="outlined-basic pass" name="pass" placeholder="password" variant="outlined" type="password"
             onChange={handleChange} value={password.pass} />
-          <TextField id="outlined-basic confirm_pass" placeholder="confirm password" variant="outlined" type="password" style={{ maxWidth: 500 }}
+          <TextField id="outlined-basic confirm_pass" placeholder="confirm password" variant="outlined" type="password"
             onChange={handleChange} value={password.confirm_pass} />
           <Button variant="contained" type="submit" className="submit__btn">update password</Button>
         </form>

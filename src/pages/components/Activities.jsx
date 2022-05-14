@@ -70,7 +70,7 @@ export default function Activities({ activities, setModal, setModalmsg, setStatu
 
   const handleQuickScan = (e) => {
     setState(true)
-    const { id, value } = e.target;
+    const { value } = e.target;
     axios.post("/api2/quickscan", { "id": document.getElementById(value).textContent})
       .then(response => {
         setState(false)
@@ -92,7 +92,7 @@ export default function Activities({ activities, setModal, setModalmsg, setStatu
     const val = document.querySelector(`#${event.target.id}`).value.toUpperCase();
     let tr = document.querySelectorAll("#accor__main");
 
-    if (val.length > 0 && val != "") {
+    if (val.length > 0 && val !== "") {
       $('body').addClass('stop-scrolling')
       $('.activities').css('min-height', "100vh")
     }
@@ -174,10 +174,11 @@ export default function Activities({ activities, setModal, setModalmsg, setStatu
                   <Typography style={{ wordWrap: "break-word" }}>Modify Date: {file.modifydate}</Typography>
                 </div>
                 <div className='file__encrypt file__item'>
-                  <Button variant="outlined" color="error" type="submit" onClick={handleBtnClick}
+                  <Button variant="outlined" color="error" type="submit" onClick={handleBtnClick} fullWidth
                     value={`file_id_${file.panel_id}d`} id={`file__encrypt_${file.panel_id}`}>{file.status < 5 ? 'Encrypt' : 'Decrypt'}</Button>
 
-                  <Button variant="outlined" color="info" type="submit" onClick={handleQuickScan} style={{display: file.status > 5 ? 'none': ''}}
+                  <Button variant="outlined" color="info" type="submit" onClick={handleQuickScan} fullWidth
+                  style={{display: file.status > 5 ? 'none': ''}}
                     value={`file_id_${file.panel_id}d`} id={`file__encrypt_${file.panel_id}`}>Scan</Button>
                 </div>
               </Typography>
