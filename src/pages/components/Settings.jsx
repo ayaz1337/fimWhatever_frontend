@@ -100,15 +100,16 @@ export default function Settings({ role }) {
         axios.post("/api2/verify", formValues)
             .then((response) => {
                 setState(false)
-                setTimeout('', 2000)
                 setModalmsg(response.data['ack'])
                 setStatus(true)
-                setTimeout(setModal(true), 2000);
+                setTimeout(()  => {
+                    setModal(true)
+                },800)
             })
             .catch((error) => {
+                setModal(true)
                 setModalmsg(error.response.data['error'])
                 setState(false)
-                setModal(true)
                 setStatus(false)
             })
     };
