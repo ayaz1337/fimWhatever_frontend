@@ -20,12 +20,14 @@
   --color-0x11: rgba(0, 0, 0, 0.8);
   --color-0x13: #E0E2EA;
 
+  --box-shadow0x01: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+  --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 
 
   
   --border-0x1: 5px;
   --card-padding: 2.5rem;
-  --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   --tran-03: all 0.3s ease;
   --tran-05: all 0.5s ease;

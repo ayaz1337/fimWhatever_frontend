@@ -22,7 +22,7 @@
     }
     
     .config {
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: var(--box-shadow0x01);
         grid-column-start: 1;
         grid-column-end: 3;
         background: linear-gradient(to right bottom, #f0f0f0, #f4f4f4, #f7f7f7, #fbfbfb, #ffffff);
