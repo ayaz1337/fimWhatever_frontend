@@ -5,9 +5,10 @@ import { motion } from 'framer-motion';
 
 export default function Error404() {
   return (
-    <motion.div initial={{y: "-100vh", opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 1, delay: 0.5, type: "spring", ease: "easeInOut"}}
-    className='error__404'>
+    // <motion.div initial={{y: "-100vh", opacity: 0}} animate={{y: 0, opacity: 1}} transition={{duration: 1, delay: 0.5, type: "spring", ease: "easeInOut"}}
+    <div className='error__404'>
       <img className='error__404__img' src={Error404img} alt=""></img>
-    </motion.div>
+    </div>
+    // </motion.div>
   )
 }

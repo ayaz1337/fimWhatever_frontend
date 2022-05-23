@@ -58,6 +58,7 @@ export default function Placeholder() {
   if (isloading) {
     return <Loader />
   }
+  
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}

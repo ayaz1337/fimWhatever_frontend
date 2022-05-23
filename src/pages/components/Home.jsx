@@ -21,9 +21,11 @@ export default function RootHome() {
         axios.all([axios.get("/api2/baseline_bak"), axios.get("/api2/chart"), axios.get("/api2/analytics")])
             .then((response) => {
                 setLoading(false)
-                setActivities(response[0].data)
-                setOverview(response[1].data.slice(-5))
-                setAnalytics(response[2].data)
+                setTimeout(() => {
+                    setActivities(response[0].data)
+                    setOverview(response[1].data.slice(-5))
+                    setAnalytics(response[2].data)
+                }, 1500)
             })
             .catch(() => {
                 setLoading(false)

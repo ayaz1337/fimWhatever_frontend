@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 
 import HelperTable from './Table.jsx';
 import CircularLoader from './CircularLoader';
-
+import Slider from '@mui/material/Slider';
 
 let defaultValues = {
     alert: false,
@@ -20,6 +20,7 @@ let defaultValues = {
     interval: 86400,
     manual: false
 };
+
 
 const cardVariant1 = {
     hidden: { opacity: 0, y: "-800px" },
@@ -32,6 +33,13 @@ const cardVariant2 = {
     transition: { duration: 0.3 }
 }
 
+const setColor = (risk) => {
+    switch (risk) {
+        case 0: return 'primary'
+        case 1: return 'warning'
+        case 2: return 'error'
+    }
+}
 
 export default function Settings({ role }) {
     const [formValues, setFormValues] = useState(defaultValues);
@@ -43,13 +51,15 @@ export default function Settings({ role }) {
     const [modalmsg, setModalmsg] = useState(false)
     const [status, setStatus] = useState(true)
     const [state, setState] = useState(false)
+    const [level, setLevel] = useState(0)
 
 
 
     useEffect(() => {
-        axios.get("/api2/baseline_bak")
+        axios.all([axios.get("/api2/baseline_bak"), axios.get("/api2/analytics")])
             .then((response) => {
-                setRows(response.data)
+                setRows(response[0].data)
+                setLevel(response[1].data['risk'])
 
                 setLoading(false)
             })
@@ -97,14 +107,15 @@ export default function Settings({ role }) {
     const handleSubmit = (event) => {
         event.preventDefault();
         setState(true)
+        axios.post('/api2/setseverity', { "risk": level })
         axios.post("/api2/verify", formValues)
             .then((response) => {
                 setState(false)
                 setModalmsg(response.data['ack'])
                 setStatus(true)
-                setTimeout(()  => {
+                setTimeout(() => {
                     setModal(true)
-                },800)
+                }, 800)
             })
             .catch((error) => {
                 setModal(true)
@@ -130,8 +141,8 @@ export default function Settings({ role }) {
                 setModalmsg(error.response.data['error'])
                 setState(false)
                 setStatus(false)
-            })    
-    }       
+            })
+    }
 
     const handleRmClick = () => {
         setState(true)
@@ -169,6 +180,11 @@ export default function Settings({ role }) {
                 setState(false)
                 setStatus(false)
             })
+    }
+
+
+    const handleColor = (event) => {
+        setLevel(event.target.value)
     }
 
     if (isloading) {
@@ -230,7 +246,7 @@ export default function Settings({ role }) {
                             <Button variant="outlined" color="primary" type="submit">start scan</Button>
                             <Button variant="outlined" color="primary" type="submit" onClick={handleClick}>stop scan</Button>
                         </form>
-
+                        <Slider defaultValue={level} min={0} max={2} step={1} aria-label="Default" valueLabelDisplay="auto" color={`${setColor(level)}`} onChange={handleColor} />
 
                         <div className='add__baseline'>
                             <TextField
@@ -325,7 +341,6 @@ export default function Settings({ role }) {
                             <Button variant="outlined" color="primary" type="submit">start scan</Button>
                             <Button variant="outlined" color="primary" type="submit" onClick={handleClick}>stop scan</Button>
                         </form>
-
 
                         <div className='add__baseline'>
                             <TextField
