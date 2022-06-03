@@ -14,13 +14,14 @@ import { Navigate, NavLink } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Banner from '../assets/A_-wAhRYnWQscAAAAAAAAAAABkARQnAQ.png';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import CardImg1 from '../assets/security-identify.svg';
 import CardImg2 from '../assets/security-update.svg';
 import CardImg3 from '../assets/security-fix.svg';
 import PythonLogo from '../assets/python.png';
+import ReactLogo from '../assets/react.png';
+import MongoLogo from '../assets/mongo.png';
+import { FaTwitter, FaGithub, FaDiscord, FaTelegramPlane, FaLinkedinIn } from 'react-icons/fa';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -162,47 +163,99 @@ export default function ElevateAppBar(props) {
           </div>
 
           <div className="row__five">
-            <Card sx={{ maxWidth: 370, boxShadow: "none" }}>
-              <CardContent className='cardContent'>
-                <div className="cardImg">
-                  <img src={CardImg1} alt="" />
-                </div>
-                <Typography gutterBottom variant="h5" component="div">
-                  Lizard
-                </Typography>
-                <Typography variant="body2" color="text.secondary" component="div" style={{ textAlign: "center" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </Typography>
+            <Card sx={{ background: 'inherit', boxShadow: 'none' }}>
+              <CardContent>
+                <Box sx={{ display: 'flex' }}>
+                  <div className="cardImg">
+                    <img src={PythonLogo} alt="" />
+                  </div>
+                  <div className='textArea'>
+                    <Typography gutterBottom variant="h5" component="div">
+                      Python
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Lizards are a widespread group of squamate reptiles, with over 6,000
+                      species, ranging across all continents except Antarctica
+                    </Typography>
+                    <Button variant="outlined" sx={{ mt: 2 }}>
+                      learn more
+                    </Button>
+                  </div>
+                </Box>
               </CardContent>
             </Card>
-            <Card sx={{ maxWidth: 370, boxShadow: "none" }}>
-              <CardContent className='cardContent'>
-                <div className="cardImg">
-                  <img src={CardImg3} alt="" />
-                </div>
-                <Typography gutterBottom variant="h5" component="div">
-                  Lizard
-                </Typography>
-                <Typography variant="body2" color="text.secondary" component="div" style={{ textAlign: "center" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </Typography>
+            <Card sx={{ background: 'inherit', boxShadow: 'none' }}>
+              <CardContent>
+                <Box sx={{ display: 'flex' }}>
+                  <div className='textArea'>
+                    <Typography gutterBottom variant="h5" component="div">
+                      React
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Lizards are a widespread group of squamate reptiles, with over 6,000
+                      species, ranging across all continents except Antarctica
+                    </Typography>
+                    <Button variant="outlined" sx={{ mt: 2 }}>
+                      learn more
+                    </Button>
+                  </div>
+                  <div className="cardImg">
+                    <img src={ReactLogo} alt="" />
+                  </div>
+                </Box>
               </CardContent>
             </Card>
-            <Card sx={{ maxWidth: 370, boxShadow: "none" }}>
-              <CardContent className='cardContent'>
-                <div className="cardImg">
-                  <img src={PythonLogo} alt="" />
-                </div>
-                <Typography gutterBottom variant="h5" component="div">
-                  Lizard
-                </Typography>
-                <Typography variant="body1" color="text.secondary" component="div" style={{ textAlign: "center" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </Typography>
+            <Card sx={{ background: 'inherit', boxShadow: 'none' }}>
+              <CardContent>
+                <Box sx={{ display: 'flex' }}>
+                  <div className="cardImg">
+                    <img src={MongoLogo} alt="" />
+                  </div>
+                  <div className='textArea'>
+                    <Typography gutterBottom variant="h5" component="div">
+                      MongoDB
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Lizards are a widespread group of squamate reptiles, with over 6,000
+                      species, ranging across all continents except Antarctica
+                    </Typography>
+                    <Button variant="outlined" sx={{ mt: 2 }}>
+                      learn more
+                    </Button>
+                  </div>
+                </Box>
               </CardContent>
             </Card>
           </div>
+          <div className="row__two">
+            <Typography variant="h10" component="div" color="text.primary">
+              OBSCURITY
+            </Typography>
+            <Typography variant="h4" component="div" color="text.primary">
+              Security through obscurity
+            </Typography>
+          </div>
         </Container>
+
+        <div className='footer'>
+          <div className="social__links">
+            <div className="twitter" href="google.com">
+              <FaTwitter />
+            </div>
+            <div className="github">
+              <FaGithub />
+            </div>
+            <div className="discord">
+              <FaDiscord />
+            </div>
+            <div className="telegram">
+              <FaTelegramPlane />
+            </div>
+            <div className="linkedin">
+              <FaLinkedinIn />
+            </div>
+          </div>
+        </div>
       </React.Fragment>
     </div>
   );

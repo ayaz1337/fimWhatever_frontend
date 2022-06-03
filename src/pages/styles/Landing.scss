@@ -85,25 +85,55 @@
 
         .row__five {
             display: flex;
+            flex-direction: column;
+            gap: 5rem;
             margin-top: 10rem;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
 
-            .cardContent {
+            img {
+                width: 25rem;
+            }
+
+            .textArea {
                 display: flex;
-                gap: 1rem;
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: center;
-
-                img {
-                    background: radial-gradient(227.48% 373.86% at 50% 220.45%, #9e7bff 31.77%, #3d8bd3 100%);
-                    border-radius: 50%;
-                    height: 10rem;
-                }
+                padding: 0 5rem;
             }
         }
     }
 
+}
+
+.footer {
+    margin-top: 5rem;
+    background: #24262b;
+    padding: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .social__links {
+        display: flex;
+        gap: 1rem;
+
+        div {
+            svg {
+                transition: all 0.5s ease;
+                font-size: 3rem;
+                color: var(--color-0x4);
+                background: var(--color-0x11);
+                padding: 0.8rem;
+                border-radius: 50%;
+            }
+
+            &:hover {
+                svg {
+                    background: var(--color-0x4);
+                    color: var(--color-0x11);
+                }
+            }
+
+        }
+    }
 }
