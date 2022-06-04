@@ -22,6 +22,8 @@ import PythonLogo from '../assets/python.png';
 import ReactLogo from '../assets/react.png';
 import MongoLogo from '../assets/mongo.png';
 import { FaTwitter, FaGithub, FaDiscord, FaTelegramPlane, FaLinkedinIn } from 'react-icons/fa';
+import scrollreveal from 'scrollreveal';
+
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -42,6 +44,34 @@ ElevationScroll.propTypes = {
 };
 
 export default function ElevateAppBar(props) {
+
+  React.useEffect(() => {
+    const variantOne = scrollreveal({
+      duration: 1000,
+      reset: true
+    });
+
+
+    variantOne.reveal(`
+    .row__one>.banner,
+    .row__one>.textArea>.button,
+    .row__one>.textArea>div:nth-of-type(1),
+    .row__one>.textArea>div:nth-of-type(2),
+    .row__one>.textArea>div:nth-of-type(3),
+    .row__two>div:nth-of-type(1),
+    .row__two>div:nth-of-type(2),
+    .row__two>div:nth-of-type(3),
+    .row__three>div>.cardContent:nth-of-type(1),
+    .row__three>div>.cardContent:nth-of-type(2),
+    .row__three>div>.cardContent:nth-of-type(3),
+    .row__four
+    `, {
+      opacity: 0,
+      interval: 300
+    })
+  })
+
+
   return (
     <div className="landing">
       <React.Fragment>
@@ -76,20 +106,20 @@ export default function ElevateAppBar(props) {
               <Typography variant="h7" component="div" sx={{ color: "#384170", my: 4 }}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium esse odit labore quasi earum, fuga omnis porro iure dolores ab optio aspernatur quas dolorum sit ullam doloremque numquam dolor. Aut.
               </Typography>
-              <Button variant="contained" >
+              <Button variant="contained" className='button'>
                 <NavLink exact to='/' className="to__gateway">start using</NavLink>
               </Button>
             </div>
           </div>
 
           <div className="row__two">
-            <Typography variant="h10" component="div" sx={{ color: "#384170" }}>
+            <Typography variant="h10" component="div" sx={{ color: "#384170" }} style={{ textAlign: "center" }}>
               SECURITY
             </Typography>
-            <Typography variant="h3" component="div" sx={{ color: "#687EEE" }}>
+            <Typography variant="h3" component="div" sx={{ color: "#687EEE" }} className="h3__header" style={{ textAlign: "center" }}>
               Stay secure end to end
             </Typography>
-            <Typography variant="body2" component="div" sx={{ color: "#6441a5", my: 1 }}>
+            <Typography variant="body2" component="div" sx={{ color: "#6441a5", my: 1 }} style={{ textAlign: "center" }}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </Typography>
           </div>
@@ -129,7 +159,7 @@ export default function ElevateAppBar(props) {
                 <Typography gutterBottom variant="h5" component="div">
                   Lizard
                 </Typography>
-                <Typography variant="body1" color="text.secondary" component="div" style={{ textAlign: "center" }}>
+                <Typography variant="body2" color="text.secondary" component="div" style={{ textAlign: "center" }}>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </Typography>
               </CardContent>
@@ -138,7 +168,7 @@ export default function ElevateAppBar(props) {
 
           <div className="row__four">
             <img src={CardImg2} alt="" />
-            <Typography gutterBottom variant="h4" component="div" sx={{ mb: 5 }}>
+            <Typography gutterBottom variant="h4" component="div" sx={{ mb: 5 }} className="h4__header">
               About Something
             </Typography>
             <Typography variant="body1" color="text.secondary" component="div" style={{ textAlign: "center", color: "#ffffff" }}>
@@ -154,10 +184,10 @@ export default function ElevateAppBar(props) {
           </div>
 
           <div className="row__two">
-            <Typography variant="h3" component="div" sx={{ color: "#687EEE" }}>
+            <Typography variant="h3" component="div" sx={{ color: "#687EEE" }} className='h3__header' style={{ textAlign: "center" }}>
               Build on best practices
             </Typography>
-            <Typography variant="body2" component="div" sx={{ color: "#6441a5", my: 1 }}>
+            <Typography variant="body2" component="div" sx={{ color: "#6441a5", my: 1 }} style={{ textAlign: "center" }}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </Typography>
           </div>
@@ -165,7 +195,7 @@ export default function ElevateAppBar(props) {
           <div className="row__five">
             <Card sx={{ background: 'inherit', boxShadow: 'none' }}>
               <CardContent>
-                <Box sx={{ display: 'flex' }}>
+                <Box sx={{ display: 'flex' }} className="flex__box">
                   <div className="cardImg">
                     <img src={PythonLogo} alt="" />
                   </div>
@@ -184,9 +214,9 @@ export default function ElevateAppBar(props) {
                 </Box>
               </CardContent>
             </Card>
-            <Card sx={{ background: 'inherit', boxShadow: 'none' }}>
+            <Card sx={{ background: 'inherit', boxShadow: 'none' }} >
               <CardContent>
-                <Box sx={{ display: 'flex' }}>
+                <Box sx={{ display: 'flex' }} className="flex__box">
                   <div className='textArea'>
                     <Typography gutterBottom variant="h5" component="div">
                       React
@@ -207,7 +237,7 @@ export default function ElevateAppBar(props) {
             </Card>
             <Card sx={{ background: 'inherit', boxShadow: 'none' }}>
               <CardContent>
-                <Box sx={{ display: 'flex' }}>
+                <Box sx={{ display: 'flex' }} className="flex__box">
                   <div className="cardImg">
                     <img src={MongoLogo} alt="" />
                   </div>
@@ -228,10 +258,10 @@ export default function ElevateAppBar(props) {
             </Card>
           </div>
           <div className="row__two">
-            <Typography variant="h10" component="div" color="text.primary">
+            <Typography variant="h10" component="div" color="text.primary" >
               OBSCURITY
             </Typography>
-            <Typography variant="h4" component="div" color="text.primary">
+            <Typography variant="h4" component="div" color="text.primary" sx={{ textAlign: "center" }}>
               Security through obscurity
             </Typography>
           </div>
@@ -251,7 +281,7 @@ export default function ElevateAppBar(props) {
             <div className="telegram">
               <FaTelegramPlane />
             </div>
-            <div className="linkedin">
+            <div className="linkedin" onClick={() => { window.location = "https://facebook.com" }}>
               <FaLinkedinIn />
             </div>
           </div>
