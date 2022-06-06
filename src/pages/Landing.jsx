@@ -23,6 +23,7 @@ import ReactLogo from '../assets/react.png';
 import MongoLogo from '../assets/mongo.png';
 import { FaTwitter, FaGithub, FaDiscord, FaTelegramPlane, FaLinkedinIn } from 'react-icons/fa';
 import scrollreveal from 'scrollreveal';
+import { ForkRight } from '@mui/icons-material';
 
 
 function ElevationScroll(props) {
@@ -46,31 +47,29 @@ ElevationScroll.propTypes = {
 export default function ElevateAppBar(props) {
 
   React.useEffect(() => {
-    const variantOne = scrollreveal({
-      duration: 1000,
+    const sr = scrollreveal({
       reset: true
-    });
-
-
-    variantOne.reveal(`
-    .row__one>.banner,
-    .row__one>.textArea>.button,
-    .row__one>.textArea>div:nth-of-type(1),
-    .row__one>.textArea>div:nth-of-type(2),
-    .row__one>.textArea>div:nth-of-type(3),
-    .row__two>div:nth-of-type(1),
-    .row__two>div:nth-of-type(2),
-    .row__two>div:nth-of-type(3),
-    .row__three>div>.cardContent:nth-of-type(1),
-    .row__three>div>.cardContent:nth-of-type(2),
-    .row__three>div>.cardContent:nth-of-type(3),
-    .row__four
-    `, {
-      opacity: 0,
-      interval: 300
     })
-  })
 
+    sr.reveal('.row__one>.banner', { opacity: 0, duration: 1500 })
+    sr.reveal('.row__one>.textArea>div', { distance: '100%', opacity: 0, duration: 1500, origin: 'top', interval: 500 })
+    sr.reveal('.row__one>.textArea>.button', { distance: '100%', opacity: 0, duration: 1500, origin: 'bottom' })
+    sr.reveal('.row__two>div', { opacity: 0, duration: 1500, interval: 500 })
+    sr.reveal('.row__three > div:nth-child(1), .row__three > div:nth-child(2), .row__three > div:nth-child(3)', { opacity: 0, duration: 1500, interval: 500 })
+    sr.reveal('.row__four', { opacity: 0, scale: 0.5, duration: 1500 })
+    sr.reveal(`
+    .row__five > div:nth-child(1) > div > div > div.cardImg,
+    .row__five > div:nth-child(2) > div > div > div.cardImg, 
+    .row__five > div:nth-child(3) > div > div > div.cardImg`,
+      { opacity: 0, duration: 2000, interval: 500, delay: 500, reset: false }
+    )
+    sr.reveal(`
+    .row__five > div:nth-child(1) > div > div > div.textArea,
+    .row__five > div:nth-child(3) > div > div > div.textArea`, {
+      distance: '100%', opacity: 0, duration: 1500, origin: 'right', reset: false
+    })
+    sr.reveal('.row__five > div:nth-child(2) > div > div > div.textArea', { distance: '100%', opacity: 0, duration: 1500, origin: 'left', reset: false })
+  })
 
   return (
     <div className="landing">
