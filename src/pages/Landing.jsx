@@ -56,18 +56,17 @@ export default function ElevateAppBar(props) {
     sr.reveal('.row__one>.textArea>.button', { distance: '100%', opacity: 0, duration: 1500, origin: 'bottom' })
     sr.reveal('.row__two>div', { opacity: 0, duration: 1500, interval: 500 })
     sr.reveal('.row__three > div:nth-child(1), .row__three > div:nth-child(2), .row__three > div:nth-child(3)', { opacity: 0, duration: 1500, interval: 500 })
-    sr.reveal('.row__four', { opacity: 0, scale: 0.5, duration: 1500 })
+    sr.reveal('.row__four', { opacity: 0, scale: 0.5, duration: 1500, delay: 1500 })
     sr.reveal(`
     .row__five > div:nth-child(1) > div > div > div.cardImg,
     .row__five > div:nth-child(2) > div > div > div.cardImg, 
-    .row__five > div:nth-child(3) > div > div > div.cardImg`,
-      { opacity: 0, duration: 2000, interval: 500, delay: 500, reset: false }
+    .row__five > div:nth-child(3) > div > div > div.cardImg
+    `,{ opacity: 0, duration: 2000, interval: 500, delay: 500, reset: false }
     )
     sr.reveal(`
     .row__five > div:nth-child(1) > div > div > div.textArea,
-    .row__five > div:nth-child(3) > div > div > div.textArea`, {
-      distance: '100%', opacity: 0, duration: 1500, origin: 'right', reset: false
-    })
+    .row__five > div:nth-child(3) > div > div > div.textArea
+    `, { distance: '100%', opacity: 0, duration: 1500, origin: 'right', reset: false })
     sr.reveal('.row__five > div:nth-child(2) > div > div > div.textArea', { distance: '100%', opacity: 0, duration: 1500, origin: 'left', reset: false })
   })
 
