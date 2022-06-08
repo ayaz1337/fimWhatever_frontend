@@ -128,14 +128,14 @@ export default function CustomPaginationActionsTable() {
     setState(true)
     const { name, checked } = event.target
     let id = document.getElementById(name)
-    axios.post('/api2/authsignup', { "email": id.textContent, "status": checked === true? 1:0 })
+    axios.post('/api2/authsignup', { "email": id.textContent, "status": checked === true ? 1 : 0 })
       .then(response => {
         setState(false)
         setModalmsg(response.data['ack'])
         setStatus(true)
         setTimeout(() => {
           setModal(true)
-        },800)
+        }, 800)
       })
       .catch((error) => {
         setModal(true)
@@ -151,9 +151,13 @@ export default function CustomPaginationActionsTable() {
 
   return (
     <PrivateRoute>
-      <motion.div className='console'>
-      <Modal modal={modal} setModal={setModal} modalmsg={modalmsg} status={status} />
-      <CircularLoader state={state} />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.5, duration: 0.3 }}
+        className='console'>
+        <Modal modal={modal} setModal={setModal} modalmsg={modalmsg} status={status} />
+        <CircularLoader state={state} />
         <TableContainer component={Paper} >
           <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
             <TableBody>

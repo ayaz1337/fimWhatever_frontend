@@ -22,8 +22,10 @@ import PythonLogo from '../assets/python.png';
 import ReactLogo from '../assets/react.png';
 import MongoLogo from '../assets/mongo.png';
 import { FaTwitter, FaGithub, FaDiscord, FaTelegramPlane, FaLinkedinIn } from 'react-icons/fa';
+import { MdCheckCircle } from 'react-icons/md';
 import scrollreveal from 'scrollreveal';
-import { ForkRight } from '@mui/icons-material';
+import ScrollToTop from "react-scroll-to-top";
+import { AiFillCode, AiFillCodeSandboxCircle, AiOutlineCode } from 'react-icons/ai';
 
 
 function ElevationScroll(props) {
@@ -48,26 +50,31 @@ export default function ElevateAppBar(props) {
 
   React.useEffect(() => {
     const sr = scrollreveal({
-      reset: true
+      reset: false
     })
 
-    sr.reveal('.row__one>.banner', { opacity: 0, duration: 1500 })
-    sr.reveal('.row__one>.textArea>div', { distance: '100%', opacity: 0, duration: 1500, origin: 'top', interval: 500 })
+    sr.reveal('.row__one>.banner', { opacity: 0, duration: 1500, scale: 0.5 })
+    sr.reveal('.row__one>.textArea>div', { distance: '100%', opacity: 0, duration: 1500, origin: 'top', interval: 300 })
     sr.reveal('.row__one>.textArea>.button', { distance: '100%', opacity: 0, duration: 1500, origin: 'bottom' })
-    sr.reveal('.row__two>div', { opacity: 0, duration: 1500, interval: 500 })
-    sr.reveal('.row__three > div:nth-child(1), .row__three > div:nth-child(2), .row__three > div:nth-child(3)', { opacity: 0, duration: 1500, interval: 500 })
-    sr.reveal('.row__four', { opacity: 0, scale: 0.5, duration: 1500, delay: 1500 })
+    sr.reveal('.row__two>div', { opacity: 0, duration: 1500, interval: 300 })
+    sr.reveal(`
+    .row__three > div:nth-child(1), 
+    .row__three > div:nth-child(2), 
+    .row__three > div:nth-child(3), 
+    .row__four`, { opacity: 0, duration: 1500, interval: 300, scale: 0.5 })
     sr.reveal(`
     .row__five > div:nth-child(1) > div > div > div.cardImg,
     .row__five > div:nth-child(2) > div > div > div.cardImg, 
     .row__five > div:nth-child(3) > div > div > div.cardImg
-    `,{ opacity: 0, duration: 2000, interval: 500, delay: 500, reset: false }
+    `, { opacity: 0, duration: 2000, interval: 300, delay: 500}
     )
     sr.reveal(`
     .row__five > div:nth-child(1) > div > div > div.textArea,
-    .row__five > div:nth-child(3) > div > div > div.textArea
-    `, { distance: '100%', opacity: 0, duration: 1500, origin: 'right', reset: false })
-    sr.reveal('.row__five > div:nth-child(2) > div > div > div.textArea', { distance: '100%', opacity: 0, duration: 1500, origin: 'left', reset: false })
+    .row__five > div:nth-child(3) > div > div > div.textArea,
+    .row__five > div:nth-child(2) > div > div > div.textArea
+    `, { distance: '100%', opacity: 0, duration: 1500 })
+    sr.reveal('.row__five > div:nth-child(1) > div > div > div.textArea, .row__five > div:nth-child(3) > div > div > div.textArea', { origin: 'right' })
+    sr.reveal('.row__five > div:nth-child(2) > div > div > div.textArea', { origin: 'left' })
   })
 
   return (
@@ -104,8 +111,8 @@ export default function ElevateAppBar(props) {
               <Typography variant="h7" component="div" sx={{ color: "#384170", my: 4 }}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium esse odit labore quasi earum, fuga omnis porro iure dolores ab optio aspernatur quas dolorum sit ullam doloremque numquam dolor. Aut.
               </Typography>
-              <Button variant="contained" className='button'>
-                <NavLink exact to='/' className="to__gateway">start using</NavLink>
+              <Button variant="contained" className='button' size='large'>
+                <NavLink exact to='/gateway' className="to__gateway">start using</NavLink>
               </Button>
             </div>
           </div>
@@ -199,7 +206,7 @@ export default function ElevateAppBar(props) {
                   </div>
                   <div className='textArea'>
                     <Typography gutterBottom variant="h5" component="div">
-                      Python
+                      <AiFillCode /> Python
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -217,7 +224,7 @@ export default function ElevateAppBar(props) {
                 <Box sx={{ display: 'flex' }} className="flex__box">
                   <div className='textArea'>
                     <Typography gutterBottom variant="h5" component="div">
-                      React
+                      <AiFillCode /> React
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -241,7 +248,7 @@ export default function ElevateAppBar(props) {
                   </div>
                   <div className='textArea'>
                     <Typography gutterBottom variant="h5" component="div">
-                      MongoDB
+                      <AiFillCode /> MongoDB
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -284,6 +291,7 @@ export default function ElevateAppBar(props) {
             </div>
           </div>
         </div>
+        <ScrollToTop smooth top='1000' />
       </React.Fragment>
     </div>
   );
