@@ -18,7 +18,8 @@ let defaultValues = {
     alert: false,
     cron: false,
     interval: 86400,
-    manual: false
+    manual: false,
+    auto_enc: false 
 };
 
 
@@ -239,6 +240,14 @@ export default function Settings({ role }) {
                                         <Switch checked={formValues.manual} onChange={handleSwitchChange} name="manual" />
                                     }
                                     label="Manual Scan"
+                                    labelPlacement="left"
+                                    onChange={handleSwitchChange}
+                                />
+                                <FormControlLabel
+                                    control={
+                                        <Switch checked={formValues.auto_enc} name="auto_enc" onChange={handleSwitchChange}/>
+                                    }
+                                    label="Auto Encrypt"
                                     labelPlacement="left"
                                     onChange={handleSwitchChange}
                                 />
