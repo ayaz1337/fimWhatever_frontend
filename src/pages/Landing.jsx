@@ -22,10 +22,9 @@ import PythonLogo from '../assets/python.png';
 import ReactLogo from '../assets/react.png';
 import MongoLogo from '../assets/mongo.png';
 import { FaTwitter, FaGithub, FaDiscord, FaTelegramPlane, FaLinkedinIn } from 'react-icons/fa';
-import { MdCheckCircle } from 'react-icons/md';
 import scrollreveal from 'scrollreveal';
 import ScrollToTop from "react-scroll-to-top";
-import { AiFillCode, AiFillCodeSandboxCircle, AiOutlineCode } from 'react-icons/ai';
+import { AiFillCode } from 'react-icons/ai';
 
 
 function ElevationScroll(props) {
@@ -66,13 +65,13 @@ export default function ElevateAppBar(props) {
     .row__five > div:nth-child(1) > div > div > div.cardImg,
     .row__five > div:nth-child(2) > div > div > div.cardImg, 
     .row__five > div:nth-child(3) > div > div > div.cardImg
-    `, { opacity: 0, duration: 2000, interval: 300, delay: 500}
+    `, { opacity: 0, duration: 2000, interval: 300, delay: 500 }
     )
     sr.reveal(`
     .row__five > div:nth-child(1) > div > div > div.textArea,
     .row__five > div:nth-child(3) > div > div > div.textArea,
     .row__five > div:nth-child(2) > div > div > div.textArea
-    `, { distance: '100%', opacity: 0, duration: 1500 })
+    `, { distance: '100%', opacity: 0, duration: 1500, interval: 300 })
     sr.reveal('.row__five > div:nth-child(1) > div > div > div.textArea, .row__five > div:nth-child(3) > div > div > div.textArea', { origin: 'right' })
     sr.reveal('.row__five > div:nth-child(2) > div > div > div.textArea', { origin: 'left' })
   })
@@ -103,13 +102,13 @@ export default function ElevateAppBar(props) {
             </div>
             <div className="textArea">
               <Typography variant="h4" component="div">
-                fim<span>Whatever</span>
+                fim<span>Whatever</span><span className='blink'>_</span>
               </Typography>
               <Typography variant="h6" component="div" sx={{ color: "#000000", mt: 1 }}>
-                Product slogan introduction
+                A simple File Integrity Monitor
               </Typography>
               <Typography variant="h7" component="div" sx={{ color: "#384170", my: 4 }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium esse odit labore quasi earum, fuga omnis porro iure dolores ab optio aspernatur quas dolorum sit ullam doloremque numquam dolor. Aut.
+                The fimWhatever Security Information and Event Management (SIEM) solution provides monitoring, detection, and alerting of security events and incidents.
               </Typography>
               <Button variant="contained" className='button' size='large'>
                 <NavLink exact to='/gateway' className="to__gateway">start using</NavLink>
@@ -125,7 +124,7 @@ export default function ElevateAppBar(props) {
               Stay secure end to end
             </Typography>
             <Typography variant="body2" component="div" sx={{ color: "#6441a5", my: 1 }} style={{ textAlign: "center" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Leverage the security community’s expertise, and use open source securely.
             </Typography>
           </div>
 
@@ -136,10 +135,10 @@ export default function ElevateAppBar(props) {
                   <img src={CardImg1} alt="" />
                 </div>
                 <Typography gutterBottom variant="h5" component="div">
-                  Lizard
+                  Integrity Monitoring
                 </Typography>
                 <Typography variant="body2" color="text.secondary" component="div" style={{ textAlign: "center" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  File integrity monitoring is an internal control or process that performs the act of validating the integrity of operating system and application software files using a verification method between the current file state and a known
                 </Typography>
               </CardContent>
             </Card>
@@ -149,10 +148,10 @@ export default function ElevateAppBar(props) {
                   <img src={CardImg3} alt="" />
                 </div>
                 <Typography gutterBottom variant="h5" component="div">
-                  Lizard
+                  Threat Detection
                 </Typography>
                 <Typography variant="body2" color="text.secondary" component="div" style={{ textAlign: "center" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Threat detection is the practice of analyzing the entirety of a security ecosystem to identify any malicious activity that could compromise the network. If a threat is detected, then mitigation efforts must be enacted to properly neutralize the threat
                 </Typography>
               </CardContent>
             </Card>
@@ -162,10 +161,10 @@ export default function ElevateAppBar(props) {
                   <img src={CardImg2} alt="" />
                 </div>
                 <Typography gutterBottom variant="h5" component="div">
-                  Lizard
+                  Log Data Analysis
                 </Typography>
                 <Typography variant="body2" color="text.secondary" component="div" style={{ textAlign: "center" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Log analysis is the process of reviewing computer-generated event logs to proactively identify bugs, security threats, factors affecting system or application performance, or other risks. Log analysis can also be used more broadly to ensure compliance
                 </Typography>
               </CardContent>
             </Card>
@@ -174,17 +173,10 @@ export default function ElevateAppBar(props) {
           <div className="row__four">
             <img src={CardImg2} alt="" />
             <Typography gutterBottom variant="h4" component="div" sx={{ mb: 5 }} className="h4__header">
-              About Something
+              About FIM
             </Typography>
             <Typography variant="body1" color="text.secondary" component="div" style={{ textAlign: "center", color: "#ffffff" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              File integrity monitoring (FIM) is an internal control or process that performs the act of validating the integrity of operating system and application software files using a verification method between the current file state and a known, good baseline. This comparison method often involves calculating a known cryptographic checksum of the file's original baseline and comparing with the calculated checksum of the current state of the file. Other file attributes can also be used to monitor integrity
             </Typography>
           </div>
 
@@ -193,7 +185,7 @@ export default function ElevateAppBar(props) {
               Build on best practices
             </Typography>
             <Typography variant="body2" component="div" sx={{ color: "#6441a5", my: 1 }} style={{ textAlign: "center" }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Use and adapt workflows built by industry leaders and the open source community
             </Typography>
           </div>
 
