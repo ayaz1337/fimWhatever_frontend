@@ -84,7 +84,7 @@ export default function ElevateAppBar(props) {
         <ElevationScroll {...props}>
           <AppBar sx={{ background: "#ffffff" }} className='app__bar'>
             <Toolbar className='tool__bar'>
-              <Avatar alt="Cindy Baker" src={Logo} sx={{ mr: 2 }} />
+              <Avatar alt="fimWhatever" src={Logo} sx={{ mr: 2 }} />
               <Typography variant="h6" component="div" sx={{ color: "#687EEE", flexGrow: 1 }}>
                 fimWhatever
               </Typography>
@@ -102,8 +102,8 @@ export default function ElevateAppBar(props) {
               <img src={Banner} alt="" />
             </div>
             <div className="textArea">
-              <Typography variant="h4" component="div" sx={{ color: "#687EEE" }}>
-                Product Name
+              <Typography variant="h4" component="div">
+                fim<span>Whatever</span>
               </Typography>
               <Typography variant="h6" component="div" sx={{ color: "#000000", mt: 1 }}>
                 Product slogan introduction

@@ -1,6 +1,11 @@
 .landing {
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@700&family=Ubuntu:wght@300;400;500;700&display=swap');
 
     .tool__bar {
+        div.MuiTypography-root.MuiTypography-h6.css-8oqgcd-MuiTypography-root {
+            font-weight: 700;
+        }
+
         .to__gateway {
             text-decoration: none;
             color: var(--color-0x4);
@@ -14,7 +19,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
-            
+
             .banner {
                 img {
                     height: 30rem;
@@ -27,6 +32,18 @@
             }
 
             .textArea {
+                div.MuiTypography-root.MuiTypography-h4.css-5lbw0b-MuiTypography-root {
+                    color: var(--color-0x1);
+                    font-weight: 600;
+                    font-family: 'Courier New', Courier, monospace;
+
+                    span {
+                        background: radial-gradient(227.48% 373.86% at 50% 220.45%, #9e7bff 31.77%, #3d8bd3 100%);
+                        background-clip: text;
+                        color: transparent;
+                    }
+                }
+
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -171,6 +188,7 @@
 
         div {
             cursor: pointer;
+
             svg {
                 transition: all 0.5s ease;
                 font-size: 3rem;
