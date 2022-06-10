@@ -25,7 +25,7 @@ export default function RootHome() {
                     setOverview(response[1].data.slice(-5))
                     setAnalytics(response[2].data)
                     setLoading(false)
-                }, 1500)
+                }, 1000)
             })
             .catch(() => {
                 setLoading(false)
