@@ -137,7 +137,7 @@ export default function ElevateAppBar(props) {
                 <Typography gutterBottom variant="h5" component="div">
                   Integrity Monitoring
                 </Typography>
-                <Typography variant="body2" color="text.secondary" component="div" style={{ textAlign: "center" }}>
+                <Typography variant="body2" color="text.secondary" component="div" style={{ textAlign: "center", wordBreak: 'break-all' }}>
                   File integrity monitoring is an internal control or process that performs the act of validating the integrity of operating system and application software files using a verification method between the current file state and a known
                 </Typography>
               </CardContent>
@@ -150,7 +150,7 @@ export default function ElevateAppBar(props) {
                 <Typography gutterBottom variant="h5" component="div">
                   Threat Detection
                 </Typography>
-                <Typography variant="body2" color="text.secondary" component="div" style={{ textAlign: "center" }}>
+                <Typography variant="body2" color="text.secondary" component="div" style={{ textAlign: "center", wordBreak: 'break-all' }}>
                   Threat detection is the practice of analyzing the entirety of a security ecosystem to identify any malicious activity that could compromise the network. If a threat is detected, then mitigation efforts must be enacted to properly neutralize the threat
                 </Typography>
               </CardContent>
@@ -163,7 +163,7 @@ export default function ElevateAppBar(props) {
                 <Typography gutterBottom variant="h5" component="div">
                   Log Data Analysis
                 </Typography>
-                <Typography variant="body2" color="text.secondary" component="div" style={{ textAlign: "center" }}>
+                <Typography variant="body2" color="text.secondary" component="div" style={{ textAlign: "center", wordBreak: 'break-all' }}>
                   Log analysis is the process of reviewing computer-generated event logs to proactively identify bugs, security threats, factors affecting system or application performance, or other risks. Log analysis can also be used more broadly to ensure compliance
                 </Typography>
               </CardContent>
@@ -175,7 +175,7 @@ export default function ElevateAppBar(props) {
             <Typography gutterBottom variant="h4" component="div" sx={{ mb: 5 }} className="h4__header">
               About FIM
             </Typography>
-            <Typography variant="body1" color="text.secondary" component="div" style={{ textAlign: "center", color: "#ffffff" }}>
+            <Typography variant="body1" color="text.secondary" component="div" style={{ textAlign: "center", color: "#ffffff", wordBreak: 'break-all' }}>
               File integrity monitoring (FIM) is an internal control or process that performs the act of validating the integrity of operating system and application software files using a verification method between the current file state and a known, good baseline. This comparison method often involves calculating a known cryptographic checksum of the file's original baseline and comparing with the calculated checksum of the current state of the file. Other file attributes can also be used to monitor integrity
             </Typography>
           </div>
@@ -201,10 +201,9 @@ export default function ElevateAppBar(props) {
                       <AiFillCode /> Python
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Lizards are a widespread group of squamate reptiles, with over 6,000
-                      species, ranging across all continents except Antarctica
+                      Python is a high-level, interpreted, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Python is dynamically-typed and garbage-collected.
                     </Typography>
-                    <Button variant="outlined" sx={{ mt: 2 }}>
+                    <Button variant="outlined" sx={{ mt: 2 }} onClick={() => { window.location = "https://www.python.org/" }}>
                       learn more
                     </Button>
                   </div>
@@ -219,10 +218,9 @@ export default function ElevateAppBar(props) {
                       <AiFillCode /> React
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Lizards are a widespread group of squamate reptiles, with over 6,000
-                      species, ranging across all continents except Antarctica
+                      React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.
                     </Typography>
-                    <Button variant="outlined" sx={{ mt: 2 }}>
+                    <Button variant="outlined" sx={{ mt: 2 }} onClick={() => { window.location = "https://reactjs.org/" }}>
                       learn more
                     </Button>
                   </div>
@@ -243,10 +241,9 @@ export default function ElevateAppBar(props) {
                       <AiFillCode /> MongoDB
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Lizards are a widespread group of squamate reptiles, with over 6,000
-                      species, ranging across all continents except Antarctica
+                      MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License which is deemed non-free by several distributions.
                     </Typography>
-                    <Button variant="outlined" sx={{ mt: 2 }}>
+                    <Button variant="outlined" sx={{ mt: 2 }} onClick={() => { window.location = "https://www.mongodb.com/" }}>
                       learn more
                     </Button>
                   </div>
