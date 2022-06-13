@@ -24,12 +24,12 @@ let defaultValues = {
 
 
 const cardVariant1 = {
-    hidden: { opacity: 0, y: "-800px" },
+    hidden: { opacity: 0, y: -100 },
     visible: { opacity: 1, y: 0 },
     transition: { duration: 0.3 }
 }
 const cardVariant2 = {
-    hidden: { opaccity: 0, y: "800px" },
+    hidden: { opaccity: 0, y: 100 },
     visible: { opacity: 1, y: 0 },
     transition: { duration: 0.3 }
 }
@@ -39,6 +39,7 @@ const setColor = (risk) => {
         case 0: return 'primary'
         case 1: return 'warning'
         case 2: return 'error'
+        default: return null
     }
 }
 

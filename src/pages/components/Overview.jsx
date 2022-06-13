@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { motion } from 'framer-motion';
 import './styles/Overview.scss';
@@ -7,9 +7,9 @@ export default function RootOverview({ overview }) {
   return (
     <motion.div
       className='overview'
-      initial={{ opacity: 0, y: -100 }}
+      initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.8, duration: 0.3 }}>
+      transition={{ delay: 1.5, duration: 0.3 }}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           isAnimationActive={true}

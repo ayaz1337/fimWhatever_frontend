@@ -2,7 +2,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@700&family=Ubuntu:wght@300;400;500;700&display=swap');
 
     .tool__bar {
-        div.MuiTypography-root.MuiTypography-h6.css-8oqgcd-MuiTypography-root {
+        .typo__header {
             font-weight: 700;
         }
 
@@ -32,7 +32,7 @@
             }
 
             .textArea {
-                div.MuiTypography-root.MuiTypography-h4.css-5lbw0b-MuiTypography-root {
+                .header__main {
                     color: var(--color-0x1);
                     font-weight: 600;
                     font-family: 'Courier New', Courier, monospace;
@@ -40,7 +40,8 @@
                     span {
                         background: radial-gradient(227.48% 373.86% at 50% 220.45%, #9e7bff 31.77%, #3d8bd3 100%);
                         background-clip: text;
-                        color: transparent;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent
                     }
 
                     .blink {

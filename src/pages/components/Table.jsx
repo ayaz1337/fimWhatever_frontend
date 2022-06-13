@@ -36,7 +36,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function ({ rows }) {
     const handleSearchChange = (event) => {
         const val = document.querySelector(`#${event.target.id}`).value.toUpperCase();
-        if (val.length > 0 && val != "") {
+        if (val.length > 0 && val !== "") {
             $('body').addClass('stop-scrolling')
             $('.table').css('min-height', "100vh")
         }

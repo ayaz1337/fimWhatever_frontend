@@ -18,6 +18,7 @@ export default function RootHome() {
     const [status, setStatus] = useState(true)
 
     useEffect(() => {
+        
         axios.all([axios.get("/api2/baseline_bak"), axios.get("/api2/chart"), axios.get("/api2/analytics")])
             .then((response) => {
                 setTimeout(() => {

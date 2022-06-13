@@ -14,12 +14,12 @@ import Loader from './Loader';
 
 
 const cardVariant1 = {
-  hidden: { opacity: 0, y: "-500px" },
+  hidden: { opacity: 0, y: 100 },
   visible: { opacity: 1, y: 0 },
   transition: { duration: 0.3 }
 }
 const cardVariant2 = {
-  hidden: { opaccity: 0, y: "500px" },
+  hidden: { opaccity: 0, y: -100 },
   visible: { opacity: 1, y: 0 },
   transition: { duration: 0.3 }
 }

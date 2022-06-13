@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import Logo from '../assets/hoyolab.jpeg';
 import { Avatar } from '@mui/material';
 import './styles/Landing.scss';
-import { Navigate, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Banner from '../assets/A_-wAhRYnWQscAAAAAAAAAAABkARQnAQ.png';
 import Card from '@mui/material/Card';
@@ -84,7 +84,7 @@ export default function ElevateAppBar(props) {
           <AppBar sx={{ background: "#ffffff" }} className='app__bar'>
             <Toolbar className='tool__bar'>
               <Avatar alt="fimWhatever" src={Logo} sx={{ mr: 2 }} />
-              <Typography variant="h6" component="div" sx={{ color: "#687EEE", flexGrow: 1 }}>
+              <Typography variant="h6" component="div" sx={{ color: "#687EEE", flexGrow: 1 }} className='typo__header'>
                 fimWhatever
               </Typography>
               <Button variant="contained">
@@ -101,7 +101,7 @@ export default function ElevateAppBar(props) {
               <img src={Banner} alt="" />
             </div>
             <div className="textArea">
-              <Typography variant="h4" component="div">
+              <Typography variant="h4" component="div" className='header__main'>
                 fim<span>Whatever</span><span className='blink'>_</span>
               </Typography>
               <Typography variant="h6" component="div" sx={{ color: "#000000", mt: 1 }}>
