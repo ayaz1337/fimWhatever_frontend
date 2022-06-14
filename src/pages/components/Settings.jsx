@@ -347,10 +347,19 @@ export default function Settings({ role }) {
                                     labelPlacement="left"
                                     onChange={handleSwitchChange}
                                 />
+                                <FormControlLabel
+                                    control={
+                                        <Switch checked={formValues.auto_enc} name="auto_enc" onChange={handleSwitchChange}/>
+                                    }
+                                    label="Auto Encrypt"
+                                    labelPlacement="left"
+                                    onChange={handleSwitchChange}
+                                />
                             </div>
                             <Button variant="outlined" color="primary" type="submit">start scan</Button>
                             <Button variant="outlined" color="primary" type="submit" onClick={handleClick}>stop scan</Button>
                         </form>
+                        {/* <Slider defaultValue={level} min={0} max={2} step={1} aria-label="Default" valueLabelDisplay="auto" color={`${setColor(level)}`} onChange={handleColor} /> */}
 
                         <div className='add__baseline'>
                             <TextField
